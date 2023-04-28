@@ -19,10 +19,10 @@ export const NextDaysTable = ({data}: any) => {
         flexDirection: 'column',
         alignItems: 'center',
       }}>
-        <Text key={item.weekday} style={{color: '#fff', fontSize: 18}}>
+        <Text key={item.weekday} style={styles.texts}>
           {item.weekday}
         </Text>
-        <Text key={item.date} style={{color: '#fff', fontSize: 12}}>
+        <Text key={item.date} style={styles.smallTexts}>
           {item.date}
         </Text>
       </View>
@@ -31,14 +31,23 @@ export const NextDaysTable = ({data}: any) => {
         {item.rain_probability > 50 ? 
         <>
           <Ionicons name="md-rainy-outline" color="white" size={30}/> 
-          <Text key={item.rain_probability} style={{color: '#fff', fontSize: 12}}>{item.rain_probability}%</Text>
+          <Text key={item.rain_probability} style={styles.smallTexts}>{item.rain_probability}%</Text>
         </>
           : <Ionicons name="md-sunny-outline" color="white" size={30}/>}
       </View>
+      <View style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 5,
+      }}>
+        <Text key={item.max} style={[styles.smallTexts, { fontWeight: 'bold' }]}>
+        {item.max}ºC
+        </Text>
+        <Text key={item.min} style={styles.smallTexts}>
+        {item.min}ºC
+        </Text>
+      </View>
       
-      <Text key={item.max} style={[styles.texts, {fontSize: 14}]}>
-      {item.max}ºC {item.min}ºC
-      </Text>
     </View>
   )
 
@@ -49,7 +58,7 @@ export const NextDaysTable = ({data}: any) => {
         <FlatList
         data={results}
         renderItem={renderItem}
-        keyExtractor={item => item.date}
+        keyExtractor={item => item.id}
         horizontal={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
@@ -80,10 +89,13 @@ const styles = StyleSheet.create({
     width: 50,
   },
   texts: {
-    opacity: 1,
     color: '#fff',
     fontSize: 18,
     textAlign: 'center',
   },
+  smallTexts: {
+    color: '#fff',
+    fontSize: 12,
+  }
 
 })
