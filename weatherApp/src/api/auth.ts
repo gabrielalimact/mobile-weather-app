@@ -21,12 +21,7 @@ export const getToday = async () => {
   return data.forest[0];
 }
 
-export const getTemp = async () => {
-  const { data } = await instance.get('http://localhost:3000/results');
-  return data.temp;
-}
-
 export const getNight = async () => {
   const { data } = await instance.get('http://localhost:3000/results');
-  return data.current === 'night';
+  return data.currently === 'night';
 }
