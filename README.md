@@ -13,6 +13,7 @@ A api fornecida possui um limite de requisições diárias por IP e acabei esgot
 
 # Resultados ✨
 
-
+<div>
 <img src="./images/day.png"  width="350">
 <img src="./images/night.png"  width="350">
+</div>
