@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Ionicons, Feather } from '@expo/vector-icons';
-import { getNight } from '../../../../api/auth';
+import { getNight } from '../../../../api/Weather/weatherService';
 import night from '../../../../../assets/night.png';
 import sun from '../../../../../assets/sun.png';
 export const Today = ({today, temp} : any) => {
@@ -10,7 +10,6 @@ export const Today = ({today, temp} : any) => {
   useEffect(() => {
     getNight().then((res) => {
       setIsNight(res);
-      console.log(res)
     })
   }, [isNight]);
   

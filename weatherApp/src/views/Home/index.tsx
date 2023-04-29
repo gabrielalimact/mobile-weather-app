@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import api, { getResults } from '../../api/auth';
+import { getResults } from '../../api/Weather/weatherService';
 import { NextDaysTable } from './components/NextDaysTable';
 import { Header } from './components/Header';
 import { Today } from './components/Today';

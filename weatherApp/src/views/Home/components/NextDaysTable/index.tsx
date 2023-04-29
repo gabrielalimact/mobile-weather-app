@@ -1,6 +1,6 @@
 import { FlatList, View, Text, StyleSheet } from "react-native"
 import { Ionicons } from '@expo/vector-icons';
-import { getNextDays } from '../../../../api/auth';
+import { getNextDays } from '../../../../api/Weather/weatherService';
 import { useEffect, useState } from "react";
 
 export const NextDaysTable = ({data}: any) => {
@@ -58,9 +58,7 @@ export const NextDaysTable = ({data}: any) => {
         <FlatList
         data={results}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
-        horizontal={false}
-        showsHorizontalScrollIndicator={false}
+        scrollEnabled={false}
         contentContainerStyle={styles.contentContainer}
       />
       }
