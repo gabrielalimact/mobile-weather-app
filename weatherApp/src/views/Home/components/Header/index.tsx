@@ -2,7 +2,15 @@ import { View, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import RNPickerSelect from "react-native-picker-select";
 
-export const Header = ({city}: any) => {
+export const Header = ({ city }: any) => {
+  const items = [
+    { value: city, label: city }
+  ]
+  
+  const pickerProps = {
+    items: items.filter(item => item.label !== undefined),
+  }
+
   return (
     <View style={styles.header}>
     <View style={styles.picker}>
@@ -10,11 +18,7 @@ export const Header = ({city}: any) => {
       <RNPickerSelect
         onValueChange={(value) => console.log(value)}
         value={city}
-        items={[{
-          label: city,
-          value: city,
-          key: 1,
-        }]}
+        {...pickerProps}
         style={{
           inputIOS: {
             fontSize: 18,
