@@ -10,3 +10,9 @@ Esta tela pode ser encontrada neste [Figma Community](https://www.figma.com/comm
 ### Observações
 
 A api fornecida possui um limite de requisições diárias por IP e acabei esgotando a minha, por isso, criei um mock no arquivo "weather.json" para rodar a aplicação.
+
+# Resultados ✨
+
+
+<img src="./images/day.png"  width="350">
+<img src="./images/night.png"  width="350">
