@@ -2,14 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView } from 'react-native';
 import Home from './src/views/Home';
 import { LinearGradient } from 'expo-linear-gradient';
-import { getResults, getNight } from './src/api/auth';
+import { getNight } from './src/api/Weather/weatherService';
 import { useEffect, useState } from 'react';
 
 export default function App() {
   const [isNight, setIsNight] = useState(false);
 
   useEffect(() => {
-    getNight().then((res) => {
+    getNight().then((res : any) => {
       setIsNight(res);
     })
   }, [isNight]);
@@ -18,8 +18,8 @@ export default function App() {
 
   return (
     <LinearGradient style={styles.container} colors={colors}>
-      <ScrollView>
-        <StatusBar style="light" />
+      <StatusBar style="light" />
+      <ScrollView >
         <Home />
       </ScrollView>
     </LinearGradient>
