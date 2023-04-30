@@ -1,7 +1,9 @@
-import { FlatList, View, Text, StyleSheet } from "react-native"
-import { Ionicons } from '@expo/vector-icons';
-import { getNextDays } from '../../../../api/Weather/weatherService';
 import { useEffect, useState } from "react";
+import { FlatList, View, Text } from "react-native"
+import { Ionicons } from '@expo/vector-icons';
+
+import { getNextDays } from '../../../../api/Weather/weatherService';
+import  { styles } from './styles';
 
 export const NextDaysTable = ({data}: any) => {
   const [results , setResults] = useState([]);
@@ -66,34 +68,3 @@ export const NextDaysTable = ({data}: any) => {
   )
 }
 
-const styles = StyleSheet.create({
-  contentContainer: {
-    width:'100%',
-    display: 'flex',
-    marginTop: 10,
-  },
-  next_days: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  midIcon: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 50,
-  },
-  texts: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  smallTexts: {
-    color: '#fff',
-    fontSize: 12,
-  }
-
-})

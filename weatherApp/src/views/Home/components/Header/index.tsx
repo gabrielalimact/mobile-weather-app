@@ -1,6 +1,8 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import RNPickerSelect from "react-native-picker-select";
+
+import { styles } from './styles';
 
 export const Header = ({ city }: any) => {
   const items = [
@@ -39,18 +41,3 @@ export const Header = ({ city }: any) => {
   )
 };
 
-const styles = StyleSheet.create({
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-  },
-  picker: {
-    display: 'flex',
-    flexDirection: 'row',
-    fontSize: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
