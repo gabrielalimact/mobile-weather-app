@@ -1,21 +1,22 @@
 import api from '../api';
+import { key } from '../../../key';
 
-export const getResults = async () => {
-  const { data } = await api.get('https://api.hgbrasil.com/weather');
+export const getWeatherData = async () => {
+  const { data } = await api.get(`?key=${key}&user_ip=remote`)
   return data.results;
 }
 
-export const getNextDays = async () => {
-  const { data } = await api.get('https://api.hgbrasil.com/weather');
-  return data.results.forecast;
+export const getResults = async () => {
+  const weatherData = await getWeatherData();
+  return weatherData;
 }
 
-export const getToday = async () => {
-  const { data } = await api.get('https://api.hgbrasil.com/weather');
-  return data.results.forest[0];
+export const getNextDays = async () => {
+  const weatherData = await getWeatherData();
+  return weatherData.forecast;
 }
 
 export const getNight = async () => {
-  const { data } = await api.get('https://api.hgbrasil.com/weather');
-  return data.results.currently === 'night';
+  const weatherData = await getWeatherData();
+  return weatherData.currently === 'night';
 }
